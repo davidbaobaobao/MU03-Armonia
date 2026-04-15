@@ -34,3 +34,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# large media files not used in production
+brand_assets/hero-bg.mp4
+brand_assets/*.mp4
+brand_assets/*.mov
+brand_assets/*.avi
