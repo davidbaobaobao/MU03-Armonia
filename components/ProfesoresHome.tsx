@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -22,38 +25,35 @@ const profesores = [
     id: 'ana',
     nombre: 'Ana Ruiz',
     rol: 'Profesora de Piano · Iniciación',
-    bio: 'Profesora certificada en el método ABRSM con más de ocho años de experiencia en enseñanza infantil y juvenil. Especialista en hacer del primer contacto con el piano una experiencia sólida y duradera. Adapta cada clase al ritmo del alumno.',
+    bio: 'Profesora certificada en el método ABRSM con más de ocho años de experiencia en enseñanza infantil y juvenil. Especialista en hacer del primer contacto con el piano una experiencia sólida y duradera.',
     imagen: '/images/teacher-03.jpeg',
     alt: 'Ana Ruiz, profesora de piano e iniciación en Escuela Armonía Valencia',
   },
 ]
 
 export default function ProfesoresHome() {
+  const [active, setActive] = useState(0)
+
   return (
     <section
-      aria-labelledby="profesores-home-heading"
+      aria-labelledby="prof-home-heading"
       style={{ background: 'var(--color-surface)' }}
     >
+      {/* Header */}
       <div
-        style={{
-          maxWidth: '1440px',
-          margin: '0 auto',
-          padding: '128px 96px',
-        }}
-        className="prof-container"
+        style={{ maxWidth: '1440px', margin: '0 auto', padding: '96px 96px 64px' }}
+        className="prof-home-header-wrap"
       >
-        {/* Cabecera */}
         <div
           style={{
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'flex-end',
-            marginBottom: '80px',
           }}
-          className="prof-header"
+          className="prof-home-header"
         >
           <h2
-            id="profesores-home-heading"
+            id="prof-home-heading"
             style={{
               fontFamily: 'var(--font-display)',
               fontWeight: 300,
@@ -61,7 +61,7 @@ export default function ProfesoresHome() {
               lineHeight: '1.1',
               letterSpacing: '-0.02em',
               color: 'var(--color-graphite-deep)',
-              maxWidth: '20ch',
+              maxWidth: '22ch',
             }}
           >
             Profesores con vocación, no solo con título.
@@ -70,110 +70,152 @@ export default function ProfesoresHome() {
             Conoce al equipo
           </Link>
         </div>
+      </div>
 
-        {/* Fichas */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '2px',
-          }}
-          className="prof-grid"
-        >
-          {profesores.map(({ id, nombre, rol, bio, imagen, alt }) => (
-            <div
-              key={id}
+      {/* Horizontal accordion */}
+      <div
+        style={{ display: 'flex', height: '72vh', gap: '2px', overflow: 'hidden' }}
+        className="prof-accordion"
+        onMouseLeave={() => setActive(0)}
+      >
+        {profesores.map((prof, i) => (
+          <div
+            key={prof.id}
+            onMouseEnter={() => setActive(i)}
+            onClick={() => setActive(i)}
+            style={{
+              flex: active === i ? '6 0 0%' : '1 0 0%',
+              transition: 'flex 600ms cubic-bezier(0.16,1,0.3,1)',
+              overflow: 'hidden',
+              position: 'relative',
+              cursor: 'default',
+            }}
+          >
+            {/* Photo */}
+            <Image
+              src={prof.imagen}
+              alt={prof.alt}
+              fill
+              sizes="(max-width: 900px) 100vw, 60vw"
               style={{
-                background: 'var(--color-surface-low)',
-                display: 'flex',
-                flexDirection: 'column',
+                objectFit: 'cover',
+                objectPosition: 'center top',
+                filter: active === i ? 'grayscale(30%)' : 'grayscale(85%)',
+                transition: 'filter 600ms cubic-bezier(0.16,1,0.3,1)',
+              }}
+            />
+
+            {/* Bottom gradient */}
+            <div
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background:
+                  'linear-gradient(to top, rgba(10,12,10,0.92) 0%, rgba(10,12,10,0.30) 45%, transparent 100%)',
+              }}
+            />
+
+            {/* Collapsed: vertical first name */}
+            <div
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%,-50%)',
+                opacity: active === i ? 0 : 1,
+                transition: 'opacity 250ms cubic-bezier(0.16,1,0.3,1)',
+                writingMode: 'vertical-rl',
+                textOrientation: 'mixed',
+                pointerEvents: 'none',
+                userSelect: 'none',
               }}
             >
-              {/* Foto */}
-              <div
+              <span
                 style={{
-                  position: 'relative',
-                  aspectRatio: '3/4',
-                  overflow: 'hidden',
+                  fontFamily: 'var(--font-body)',
+                  fontWeight: 500,
+                  fontSize: '0.625rem',
+                  letterSpacing: '0.3em',
+                  textTransform: 'uppercase',
+                  color: 'rgba(250,247,246,0.55)',
                 }}
               >
-                <Image
-                  src={imagen}
-                  alt={alt}
-                  fill
-                  sizes="(max-width: 900px) 100vw, 33vw"
-                  style={{
-                    objectFit: 'cover',
-                    objectPosition: 'center top',
-                    filter: 'grayscale(85%)',
-                    transition: 'filter 600ms cubic-bezier(0.16,1,0.3,1)',
-                  }}
-                  className="prof-photo"
-                />
-              </div>
-
-              {/* Texto */}
-              <div
-                style={{
-                  padding: '40px 36px 44px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  flexGrow: 1,
-                }}
-              >
-                <h3
-                  style={{
-                    fontFamily: 'var(--font-display)',
-                    fontWeight: 400,
-                    fontSize: '1.25rem',
-                    lineHeight: '1.2',
-                    color: 'var(--color-graphite)',
-                    marginBottom: '8px',
-                  }}
-                >
-                  {nombre}
-                </h3>
-
-                <span
-                  style={{
-                    fontFamily: 'var(--font-body)',
-                    fontWeight: 500,
-                    fontSize: '0.5625rem',
-                    letterSpacing: '0.3em',
-                    textTransform: 'uppercase',
-                    color: 'var(--color-text-muted)',
-                    display: 'block',
-                    marginBottom: '24px',
-                  }}
-                >
-                  {rol}
-                </span>
-
-                <p
-                  style={{
-                    fontFamily: 'var(--font-body)',
-                    fontWeight: 300,
-                    fontSize: '0.9375rem',
-                    lineHeight: '1.7',
-                    color: 'var(--color-text-muted)',
-                  }}
-                >
-                  {bio}
-                </p>
-              </div>
+                {prof.nombre.split(' ')[0]}
+              </span>
             </div>
-          ))}
-        </div>
+
+            {/* Expanded: full content */}
+            <div
+              style={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                padding: '48px 44px',
+                opacity: active === i ? 1 : 0,
+                transform: active === i ? 'translateY(0)' : 'translateY(20px)',
+                transition: 'opacity 400ms cubic-bezier(0.16,1,0.3,1), transform 400ms cubic-bezier(0.16,1,0.3,1)',
+                transitionDelay: active === i ? '180ms' : '0ms',
+                pointerEvents: active === i ? 'auto' : 'none',
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontWeight: 500,
+                  fontSize: '0.5625rem',
+                  letterSpacing: '0.35em',
+                  textTransform: 'uppercase',
+                  color: 'rgba(250,247,246,0.50)',
+                  marginBottom: '12px',
+                }}
+              >
+                {prof.rol}
+              </p>
+              <h3
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontWeight: 300,
+                  fontSize: 'clamp(1.75rem,2.5vw,2.75rem)',
+                  lineHeight: '1.05',
+                  letterSpacing: '-0.025em',
+                  color: 'var(--color-text-inv)',
+                  marginBottom: '20px',
+                }}
+              >
+                {prof.nombre}
+              </h3>
+              <p
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontWeight: 300,
+                  fontSize: '0.9375rem',
+                  lineHeight: '1.65',
+                  color: 'rgba(250,247,246,0.62)',
+                  maxWidth: '38ch',
+                }}
+              >
+                {prof.bio}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
 
       <style>{`
-        .prof-photo:hover { filter: grayscale(0%) !important; }
-        @media (max-width: 1024px) {
-          .prof-grid { grid-template-columns: 1fr !important; gap: 2px !important; }
-        }
         @media (max-width: 900px) {
-          .prof-container { padding: 80px 24px !important; }
-          .prof-header { flex-direction: column; align-items: flex-start; gap: 32px; }
+          .prof-home-header-wrap { padding: 64px 24px 48px !important; }
+          .prof-home-header { flex-direction: column; align-items: flex-start; gap: 24px; }
+          .prof-accordion {
+            flex-direction: column !important;
+            height: auto !important;
+          }
+          .prof-accordion > div {
+            flex: 0 0 56vw !important;
+            height: 56vw;
+          }
         }
       `}</style>
     </section>

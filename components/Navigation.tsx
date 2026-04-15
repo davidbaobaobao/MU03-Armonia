@@ -8,7 +8,7 @@ const navLinks = [
   { href: '/cursos',     label: 'Cursos' },
   { href: '/profesores', label: 'Profesores' },
   { href: '/metodo',     label: 'Método' },
-  { href: '/#recitales', label: 'Recitales' },
+  { href: '/recitales',  label: 'Recitales' },
   { href: '/contacto',   label: 'Contacto' },
 ]
 
