@@ -30,11 +30,20 @@ const cursos = [
   },
 ]
 
+/**
+ * Dark-themed section — sits directly on top of the blurred VideoBackground.
+ * rgba(15,17,14,0.82) overlay lets the blurred video show through while
+ * keeping content readable. Uses light/ivory text throughout.
+ */
 export default function CursosDestacados() {
   return (
     <section
       aria-labelledby="cursos-heading"
-      style={{ background: 'var(--color-surface-low)' }}
+      style={{
+        position: 'relative',
+        zIndex: 1,
+        background: 'rgba(15,17,14,0.82)',
+      }}
     >
       <div
         style={{
@@ -62,13 +71,27 @@ export default function CursosDestacados() {
               fontSize: 'clamp(2rem,4vw,3.5rem)',
               lineHeight: '1.1',
               letterSpacing: '-0.02em',
-              color: 'var(--color-graphite-deep)',
+              color: 'var(--color-text-inv)',
               maxWidth: '12ch',
             }}
           >
             Encuentra tu nivel.
           </h2>
-          <Link href="/cursos" className="btn-tertiary" style={{ flexShrink: 0 }}>
+          <Link
+            href="/cursos"
+            style={{
+              fontFamily: 'var(--font-body)',
+              fontWeight: 500,
+              fontSize: '0.75rem',
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              color: 'rgba(250,247,246,0.55)',
+              textDecoration: 'none',
+              flexShrink: 0,
+              transition: 'color 150ms cubic-bezier(0.16,1,0.3,1)',
+            }}
+            className="cursos-ver-link"
+          >
             Ver todos los cursos
           </Link>
         </div>
@@ -78,7 +101,7 @@ export default function CursosDestacados() {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '2px',
+            gap: '1px',
           }}
           className="cursos-grid"
         >
@@ -86,11 +109,11 @@ export default function CursosDestacados() {
             <div
               key={num}
               style={{
-                background: 'var(--color-surface)',
+                background: 'rgba(250,249,246,0.05)',
+                border: '1px solid rgba(250,249,246,0.09)',
                 padding: '48px 40px 44px',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '0',
               }}
             >
               {/* Número decorativo */}
@@ -101,7 +124,7 @@ export default function CursosDestacados() {
                   fontWeight: 300,
                   fontSize: 'clamp(2.5rem,5vw,4rem)',
                   lineHeight: '1',
-                  color: 'var(--color-surface-highest)',
+                  color: 'rgba(250,249,246,0.12)',
                   letterSpacing: '-0.02em',
                   display: 'block',
                   marginBottom: '32px',
@@ -117,7 +140,7 @@ export default function CursosDestacados() {
                   fontWeight: 400,
                   fontSize: '1.375rem',
                   lineHeight: '1.2',
-                  color: 'var(--color-graphite)',
+                  color: 'var(--color-text-inv)',
                   marginBottom: '20px',
                 }}
               >
@@ -131,22 +154,21 @@ export default function CursosDestacados() {
                   fontWeight: 300,
                   fontSize: '0.9375rem',
                   lineHeight: '1.7',
-                  color: 'var(--color-text-muted)',
+                  color: 'rgba(250,247,246,0.65)',
                   marginBottom: '28px',
                 }}
               >
                 {desc}
               </p>
 
-              {/* Detalle del contenido */}
+              {/* Detalle */}
               <p
                 style={{
                   fontFamily: 'var(--font-body)',
                   fontWeight: 300,
                   fontSize: '0.8125rem',
                   lineHeight: '1.7',
-                  color: 'var(--color-text-muted)',
-                  opacity: 0.75,
+                  color: 'rgba(250,247,246,0.35)',
                   marginBottom: 'auto',
                   paddingBottom: '32px',
                 }}
@@ -154,17 +176,16 @@ export default function CursosDestacados() {
                 {detalle}
               </p>
 
-              {/* Separador */}
+              {/* Footer tarjeta */}
               <div
                 style={{
-                  borderTop: '1px solid var(--color-surface-high)',
+                  borderTop: '1px solid rgba(250,249,246,0.10)',
                   paddingTop: '24px',
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'flex-end',
                 }}
               >
-                {/* Precio */}
                 <div>
                   <span
                     style={{
@@ -172,7 +193,7 @@ export default function CursosDestacados() {
                       fontWeight: 300,
                       fontSize: '1.75rem',
                       lineHeight: '1',
-                      color: 'var(--color-graphite-deep)',
+                      color: 'var(--color-text-inv)',
                       letterSpacing: '-0.02em',
                     }}
                   >
@@ -183,7 +204,7 @@ export default function CursosDestacados() {
                       fontFamily: 'var(--font-body)',
                       fontWeight: 300,
                       fontSize: '0.75rem',
-                      color: 'var(--color-text-muted)',
+                      color: 'rgba(250,247,246,0.45)',
                       marginLeft: '6px',
                     }}
                   >
@@ -191,7 +212,6 @@ export default function CursosDestacados() {
                   </span>
                 </div>
 
-                {/* Formato + edad */}
                 <div style={{ textAlign: 'right' }}>
                   <span
                     style={{
@@ -200,7 +220,7 @@ export default function CursosDestacados() {
                       fontSize: '0.5625rem',
                       letterSpacing: '0.25em',
                       textTransform: 'uppercase',
-                      color: 'var(--color-text-muted)',
+                      color: 'rgba(250,247,246,0.40)',
                       display: 'block',
                       marginBottom: '4px',
                     }}
@@ -214,7 +234,7 @@ export default function CursosDestacados() {
                       fontSize: '0.5625rem',
                       letterSpacing: '0.25em',
                       textTransform: 'uppercase',
-                      color: 'var(--color-text-muted)',
+                      color: 'rgba(250,247,246,0.40)',
                       display: 'block',
                     }}
                   >
@@ -226,7 +246,7 @@ export default function CursosDestacados() {
           ))}
         </div>
 
-        {/* CTA inscripción */}
+        {/* CTA */}
         <div
           style={{
             marginTop: '64px',
@@ -242,20 +262,39 @@ export default function CursosDestacados() {
               fontStyle: 'italic',
               fontWeight: 400,
               fontSize: '1rem',
-              color: 'var(--color-text-muted)',
+              color: 'rgba(250,247,246,0.50)',
             }}
           >
             ¿No sabes qué nivel elegir? Te ayudamos.
           </p>
-          <Link href="/contacto" className="btn-primary" style={{ flexShrink: 0 }}>
+          <Link
+            href="/contacto"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: 'var(--color-text-inv)',
+              color: 'var(--color-graphite-deep)',
+              fontFamily: 'var(--font-body)',
+              fontWeight: 500,
+              fontSize: '0.75rem',
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              textDecoration: 'none',
+              padding: '16px 32px',
+              minHeight: '48px',
+              flexShrink: 0,
+            }}
+          >
             Inscríbete
           </Link>
         </div>
       </div>
 
       <style>{`
+        .cursos-ver-link:hover { color: rgba(250,247,246,0.85) !important; }
         @media (max-width: 1024px) {
-          .cursos-grid { grid-template-columns: 1fr !important; gap: 2px !important; }
+          .cursos-grid { grid-template-columns: 1fr !important; gap: 1px !important; }
         }
         @media (max-width: 900px) {
           .cursos-container { padding: 80px 24px !important; }
