@@ -94,8 +94,8 @@ export default function CursosDestacados() {
               key={num}
               style={{
                 flex: '1 1 0%',
-                background: 'rgba(10,12,10,0.76)',
-                border: '1px solid rgba(250,249,246,0.08)',
+                background: 'rgba(38,42,38,0.82)',
+                border: '1px solid rgba(250,249,246,0.14)',
                 padding: '48px 36px 40px',
                 display: 'flex',
                 flexDirection: 'column',
@@ -108,7 +108,7 @@ export default function CursosDestacados() {
                   fontWeight: 300,
                   fontSize: 'clamp(2.5rem,5vw,4rem)',
                   lineHeight: '1',
-                  color: 'rgba(250,249,246,0.10)',
+                  color: 'rgba(250,249,246,0.22)',
                   letterSpacing: '-0.02em',
                   display: 'block',
                   marginBottom: '28px',
@@ -136,7 +136,7 @@ export default function CursosDestacados() {
                   fontWeight: 300,
                   fontSize: '0.9375rem',
                   lineHeight: '1.7',
-                  color: 'rgba(250,247,246,0.62)',
+                  color: 'rgba(250,247,246,0.78)',
                   marginBottom: '20px',
                 }}
               >
@@ -149,7 +149,7 @@ export default function CursosDestacados() {
                   fontWeight: 300,
                   fontSize: '0.8125rem',
                   lineHeight: '1.7',
-                  color: 'rgba(250,247,246,0.30)',
+                  color: 'rgba(250,247,246,0.52)',
                   marginBottom: 'auto',
                   paddingBottom: '28px',
                 }}
@@ -159,7 +159,7 @@ export default function CursosDestacados() {
 
               <div
                 style={{
-                  borderTop: '1px solid rgba(250,249,246,0.08)',
+                  borderTop: '1px solid rgba(250,249,246,0.14)',
                   paddingTop: '24px',
                   display: 'flex',
                   justifyContent: 'space-between',
@@ -184,7 +184,7 @@ export default function CursosDestacados() {
                       fontFamily: 'var(--font-body)',
                       fontWeight: 300,
                       fontSize: '0.75rem',
-                      color: 'rgba(250,247,246,0.40)',
+                      color: 'rgba(250,247,246,0.58)',
                       marginLeft: '6px',
                     }}
                   >
@@ -199,7 +199,7 @@ export default function CursosDestacados() {
                       fontSize: '0.5625rem',
                       letterSpacing: '0.2em',
                       textTransform: 'uppercase',
-                      color: 'rgba(250,247,246,0.35)',
+                      color: 'rgba(250,247,246,0.55)',
                       display: 'block',
                       marginBottom: '3px',
                     }}
@@ -213,7 +213,7 @@ export default function CursosDestacados() {
                       fontSize: '0.5625rem',
                       letterSpacing: '0.2em',
                       textTransform: 'uppercase',
-                      color: 'rgba(250,247,246,0.35)',
+                      color: 'rgba(250,247,246,0.55)',
                       display: 'block',
                     }}
                   >
@@ -236,7 +236,7 @@ export default function CursosDestacados() {
               fontStyle: 'italic',
               fontWeight: 400,
               fontSize: '1rem',
-              color: 'rgba(250,247,246,0.45)',
+              color: 'rgba(250,247,246,0.65)',
             }}
           >
             ¿No sabes qué nivel elegir? Te ayudamos.
@@ -272,12 +272,12 @@ export default function CursosDestacados() {
           font-size: 0.75rem;
           letter-spacing: 0.15em;
           text-transform: uppercase;
-          color: rgba(250,247,246,0.45);
+          color: rgba(250,247,246,0.62);
           text-decoration: none;
           flex-shrink: 0;
           transition: color 150ms cubic-bezier(0.16,1,0.3,1);
         }
-        .cursos-ver-link:hover { color: rgba(250,247,246,0.85); }
+        .cursos-ver-link:hover { color: rgba(250,247,246,0.92); }
         @media (max-width: 1024px) {
           .cursos-grid { flex-direction: column !important; }
         }
