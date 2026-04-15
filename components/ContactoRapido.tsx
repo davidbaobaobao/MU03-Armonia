@@ -8,7 +8,6 @@ export default function ContactoRapido() {
       }}
     >
       <style>{`
-        .cr-tel:hover  { opacity: 0.7; }
         .cr-email:hover { color: var(--color-text-inv) !important; }
         @media (max-width: 900px) {
           .contacto-grid {
@@ -31,7 +30,7 @@ export default function ContactoRapido() {
         }}
         className="contacto-grid"
       >
-        {/* Izquierda — teléfono + email + WhatsApp */}
+        {/* Izquierda — email + WhatsApp */}
         <div>
           <h2
             id="contacto-rapido-heading"
@@ -50,12 +49,12 @@ export default function ContactoRapido() {
           </h2>
 
           <a
-            href="tel:+34655544567"
-            className="cr-tel"
+            href="mailto:yeyebcn01@gmail.com"
+            className="cr-email"
             style={{
               fontFamily: 'var(--font-display)',
               fontWeight: 300,
-              fontSize: 'clamp(2rem,5vw,4rem)',
+              fontSize: 'clamp(1.5rem,3.5vw,3rem)',
               lineHeight: '1.05',
               letterSpacing: '-0.02em',
               color: 'var(--color-text-inv)',
@@ -65,25 +64,21 @@ export default function ContactoRapido() {
               transition: 'opacity 150ms cubic-bezier(0.16,1,0.3,1)',
             }}
           >
-            655 544 567
-          </a>
-
-          <a
-            href="mailto:yeyebcn01@gmail.com"
-            className="cr-email"
-            style={{
-              fontFamily: 'var(--font-body)',
-              fontWeight: 300,
-              fontSize: '0.9375rem',
-              color: 'rgba(250,247,246,0.6)',
-              textDecoration: 'none',
-              display: 'block',
-              marginBottom: '40px',
-              transition: 'color 150ms cubic-bezier(0.16,1,0.3,1)',
-            }}
-          >
             yeyebcn01@gmail.com
           </a>
+
+          <div style={{ marginBottom: '40px' }}>
+            <span
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontWeight: 300,
+                fontSize: '0.8125rem',
+                color: 'rgba(250,247,246,0.5)',
+              }}
+            >
+              Respondemos en 24 horas
+            </span>
+          </div>
 
           <a
             href="https://wa.me/34655544567?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20los%20cursos%20de%20piano"

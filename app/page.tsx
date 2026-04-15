@@ -4,6 +4,8 @@ export const revalidate = 60
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import CursosDestacados from '@/components/CursosDestacados'
+import MetodoHome from '@/components/MetodoHome'
+import ProfesoresHome from '@/components/ProfesoresHome'
 import SobreEscuela from '@/components/SobreEscuela'
 import CitaCentral from '@/components/CitaCentral'
 import Testimonios from '@/components/Testimonios'
@@ -18,6 +20,8 @@ export default function Home() {
       <main id="main">
         <Hero />
         <CursosDestacados />
+        <MetodoHome />
+        <ProfesoresHome />
         <SobreEscuela />
         <CitaCentral />
         <Testimonios />
