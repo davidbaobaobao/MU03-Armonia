@@ -41,6 +41,17 @@ export default function CursosDestacados() {
       aria-labelledby="cursos-heading"
       style={{ position: 'relative', zIndex: 1, background: 'transparent' }}
     >
+      {/* Overlay — matches the bottom value of the Hero gradient so there is no
+          visible seam between the two transparent sections */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'rgba(15,17,14,0.62)',
+          pointerEvents: 'none',
+        }}
+      />
       <div
         style={{ maxWidth: '1440px', margin: '0 auto', padding: '96px 96px 128px' }}
         className="cursos-container"

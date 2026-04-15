@@ -65,7 +65,7 @@ export default function PrivacidadPage() {
 
           <Section titulo="1. Responsable del tratamiento">
             <p><strong>Responsable:</strong> Escuela Armonía</p>
-            <p><strong>Contacto:</strong> yeyebcn01@gmail.com · 655 544 567</p>
+            <p><strong>Contacto:</strong> WhatsApp 655 544 567</p>
           </Section>
 
           <Section titulo="2. Datos que recopilamos">
@@ -109,7 +109,7 @@ export default function PrivacidadPage() {
           <Section titulo="7. Derechos del interesado">
             <p>
               Puedes ejercer los derechos de acceso, rectificación, supresión, oposición,
-              limitación y portabilidad escribiendo a yeyebcn01@gmail.com, adjuntando copia
+              limitación y portabilidad contactando por WhatsApp al 655 544 567, adjuntando copia
               de tu documento de identidad. También tienes derecho a presentar una reclamación
               ante la Agencia Española de Protección de Datos (aepd.es).
             </p>

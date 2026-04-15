@@ -5,7 +5,7 @@ import ContactoForm from '@/components/ContactoForm'
 
 export const metadata: Metadata = {
   title: 'Contacto y Horarios | Escuela Armonía Valencia',
-  description: 'Escríbenos a yeyebcn01@gmail.com o por WhatsApp. Lunes a viernes 9:00–17:00.',
+  description: 'Escríbenos por WhatsApp o rellena el formulario. Lunes a viernes 9:00–17:00.',
   openGraph: {
     title: 'Contacto y Horarios | Escuela Armonía Valencia',
     locale: 'es_ES',
@@ -55,36 +55,6 @@ export default function ContactoPage() {
               </h1>
 
               <dl style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
-                <div>
-                  <dt
-                    style={{
-                      fontFamily: 'var(--font-body)',
-                      fontWeight: 500,
-                      fontSize: '0.5625rem',
-                      letterSpacing: '0.4em',
-                      textTransform: 'uppercase',
-                      color: 'var(--color-text-muted)',
-                      marginBottom: '8px',
-                    }}
-                  >
-                    Email
-                  </dt>
-                  <dd style={{ marginLeft: 0 }}>
-                    <a
-                      href="mailto:yeyebcn01@gmail.com"
-                      style={{
-                        fontFamily: 'var(--font-body)',
-                        fontWeight: 300,
-                        fontSize: '1rem',
-                        color: 'var(--color-graphite)',
-                        textDecoration: 'none',
-                      }}
-                    >
-                      yeyebcn01@gmail.com
-                    </a>
-                  </dd>
-                </div>
-
                 <div>
                   <dt
                     style={{

@@ -71,7 +71,6 @@ export default function AvisoLegalPage() {
             <br />
             <p><strong>Titular:</strong> Escuela Armonía</p>
             <p><strong>Domicilio:</strong> Valencia, España (dirección completa pendiente de confirmar)</p>
-            <p><strong>Email:</strong> yeyebcn01@gmail.com</p>
             <p><strong>Teléfono:</strong> 655 544 567</p>
           </LegalSection>
 
