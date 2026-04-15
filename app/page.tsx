@@ -3,6 +3,7 @@ export const revalidate = 60
 
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
+import Reveal from '@/components/Reveal'
 import CursosDestacados from '@/components/CursosDestacados'
 import MetodoHome from '@/components/MetodoHome'
 import ProfesoresHome from '@/components/ProfesoresHome'
@@ -18,15 +19,18 @@ export default function Home() {
     <>
       <Navigation />
       <main id="main">
+        {/* Hero — sticky scroll blur (200vh wrapper inside) */}
         <Hero />
-        <CursosDestacados />
-        <MetodoHome />
-        <ProfesoresHome />
-        <SobreEscuela />
-        <CitaCentral />
-        <Testimonios />
-        <Recitales />
-        <ContactoRapido />
+
+        {/* Sections below — each fades up as it enters the viewport */}
+        <Reveal><CursosDestacados /></Reveal>
+        <Reveal><MetodoHome /></Reveal>
+        <Reveal><ProfesoresHome /></Reveal>
+        <Reveal><SobreEscuela /></Reveal>
+        <Reveal><CitaCentral /></Reveal>
+        <Reveal><Testimonios /></Reveal>
+        <Reveal><Recitales /></Reveal>
+        <Reveal><ContactoRapido /></Reveal>
       </main>
       <Footer />
     </>
